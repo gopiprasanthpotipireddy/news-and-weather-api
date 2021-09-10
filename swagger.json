@@ -1,0 +1,90 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a simple news and weather api",
+    "version": "1.0.0",
+    "title": "News and Weather Api",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:9090",
+  "basePath": "/",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/news": {
+      "get": {
+        "tags": [
+          "news"
+        ],
+        "summary": "Get News headlines for a keyword",
+        "description": "",
+        "operationId": "getNews",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "api token for news",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "description": "keyword to search for new",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "description": "keyword to search for new",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Access Denied"
+          }
+        }
+      }
+    },
+    "/weather": {
+      "get": {
+        "tags": [
+          "weather"
+        ],
+        "summary": "Get Weather Updates for Next 5 Days",
+        "description": "",
+        "operationId": "getWeather",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}
